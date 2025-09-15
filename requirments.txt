@@ -1,7 +1,7 @@
 asgiref==3.9.1
 click==8.2.1
 colorama==0.4.6
-dj-database-url==2.1.0
+dj-database-url==3.0.1
 Django==5.2.5
 django-cors-headers==4.7.0
 django-rest-knox==5.0.2
