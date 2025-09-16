@@ -4,10 +4,23 @@ from .settings import *
 from .settings import BASE_DIR
 
 ALLOWED_HOSTS=[os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
-CSRF_TRUSTED_ORIGINS=['https://'+os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+
+# Get the hostname from the environment
+render_hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+
+# Trust both the www and non-www versions
+if render_hostname:
+    CSRF_TRUSTED_ORIGINS = [
+        f'https://{render_hostname}',
+        f'https://www.{render_hostname}',
+    ]
+else:
+    # Fallback for local development if the env var isn't set
+    CSRF_TRUSTED_ORIGINS = [] 
 
 DEBUG=False
 SECRET_KEY=os.environ.get('SECRET_KEY')
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
