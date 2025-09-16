@@ -34,9 +34,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#  'http://localhost:5173',
-# ]
+CORS_ALLOWED_ORIGINS = [
+ 'https://clinic-management-react-vite.onrender.com',
+]
 
 STORAGES={
     'default': {
